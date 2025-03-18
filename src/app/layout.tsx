@@ -1,15 +1,13 @@
+import Navbar from '@/components/Navbar';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Jost } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const jost = Jost({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['100', '300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-jost', // Add this back
 });
 
 export const metadata: Metadata = {
@@ -23,12 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <meta name='viewport' content='initial-scale=1, width=device-width' />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang='en' className={`${jost.variable} ${jost.className}`}>
+      <head>
+        <meta name='viewport' content='initial-scale=1, width=device-width' />
+      </head>
+      <body className='antialiased'>
+        <div className='flex h-screen flex-col'>
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
