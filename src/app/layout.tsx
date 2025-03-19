@@ -26,7 +26,7 @@ export default function RootLayout({
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </head>
       <body className='antialiased'>
-        <div className='flex h-screen flex-col'>
+        <div>
           <Navbar />
           {children}
         </div>
