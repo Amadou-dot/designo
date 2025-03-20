@@ -1,4 +1,5 @@
 import { Menu as Burger, MenuOpen as BurgerOpen } from '@mui/icons-material';
+import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,10 +17,10 @@ export default function MobileMenu() {
   };
 
   return (
-    <div>
+    <Box>
       <Button
-        id='basic-button'
-        aria-controls={open ? 'basic-menu' : undefined}
+        id='menu-button'
+        aria-controls={open ? 'menu' : undefined}
         aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
@@ -30,27 +31,51 @@ export default function MobileMenu() {
           <Burger className='text-foreground font-bold' fontSize='large' />
         )}
       </Button>
+
       <Menu
-        id='basic-menu'
+        className='mt-6'
+        id='menu'
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        marginThreshold={0}
         slotProps={{
           list: {
-            'aria-labelledby': 'basic-button',
+            'aria-labelledby': 'menu-button',
+            style: {
+              padding: '16px',
+              width: '100%',
+              color: 'var(--light-gray)',
+            },
+          },
+          paper: {
+            square: true,
+            sx: {
+              width: '100%',
+              maxWidth: '100%',
+              left: '0px',
+              right: '0px',
+              backgroundColor: 'black',
+            },
           },
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href='/about'>Our company</Link>
+          <Link href='/about' className='text-lg font-light uppercase'>
+            Our company
+          </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href='/locations'>Locations</Link>
+          <Link href='/locations' className='text-lg font-light uppercase'>
+            Locations
+          </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href='/contact'>Contact</Link>
+          <Link href='/contact' className='text-lg font-light uppercase'>
+            Contact
+          </Link>
         </MenuItem>
       </Menu>
-    </div>
+    </Box>
   );
 }
