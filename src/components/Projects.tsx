@@ -4,7 +4,7 @@ import imgWebDesign from '../assets/image-web-design-small.jpg';
 import ProjectCard from './ProjectCard';
 export default function Projects() {
   return (
-    <div className='mt-10 flex h-screen max-w-[1600px] flex-col items-center justify-evenly lg:mx-auto lg:grid lg:h-[50vh] lg:grid-cols-2 lg:grid-rows-2 lg:gap-6'>
+    <div className='mt-10 flex h-screen max-w-[1600px] flex-col items-center justify-evenly lg:mx-auto lg:grid lg:h-[50vh] lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:px-8'>
       <ProjectCard
         image={imgWebDesign}
         title='Web Design'
